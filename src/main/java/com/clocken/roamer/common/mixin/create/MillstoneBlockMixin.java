@@ -1,4 +1,4 @@
-package com.clocken.roamer.mixin;
+package com.clocken.roamer.common.mixin.create;
 
 import com.simibubi.create.AllShapes;
 import com.simibubi.create.content.kinetics.millstone.MillstoneBlock;
@@ -18,14 +18,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(MillstoneBlock.class)
 public abstract class MillstoneBlockMixin implements ICogWheel {
 
+    // model
     @Inject(
             method = "getShape(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape;",
             at = @At("HEAD"),
             cancellable = true)
     public void roamer$getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context, CallbackInfoReturnable<VoxelShape> cir) {
-        cir.setReturnValue(AllShapes.SCAFFOLD_FULL);
+        cir.setReturnValue(AllShapes.CRATE_BLOCK_SHAPE);
     }
 
+    // shaft up
     @Inject(
             method = "hasShaftTowards(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/Direction;)Z",
             at = @At("HEAD"),
@@ -34,6 +36,7 @@ public abstract class MillstoneBlockMixin implements ICogWheel {
         cir.setReturnValue(face == Direction.UP);
     }
 
+    // no side cogs
     @Override
     public boolean isSmallCog() {
         return false;

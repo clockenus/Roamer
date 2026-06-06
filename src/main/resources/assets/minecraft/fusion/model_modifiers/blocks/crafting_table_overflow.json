@@ -1,0 +1,8 @@
+{
+  "targets": [
+    "twigs:oak_table"
+  ],
+  "append": [
+    "minecraft:block/crafting_table_overlay"
+  ]
+}

@@ -65,10 +65,32 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 repositories {
     mavenLocal()
     maven { url "https://api.modrinth.com/maven" }
+
+    // MixinSquared
+    maven { url = "https://maven.bawnorton.com/releases" }
 }
 
 dependencies {
     implementation "maven.modrinth:create:6.0.10+mc1.21.1"
+
+    implementation "maven.modrinth:caverns-and-chasms:3.0.0"
+    implementation "maven.modrinth:blueprint:8.1.0"
+    implementation "maven.modrinth:horseman:1.5.9"
+
+    implementation "maven.modrinth:twigs:1.21.1-3.1.2"
+
+    implementation "maven.modrinth:no-mans-land:1.5.6"
+    implementation "maven.modrinth:biolith:1ZfKhpFg"
+
+    implementation "maven.modrinth:moonlight:1.21.1-3.0.14"
+
+    implementation "maven.modrinth:farmers-delight:1.21.1-1.3.2"
+
+    implementation "maven.modrinth:fusion-connected-textures:1.2.12-neoforge-mc1.21.1"
+
+    // MixinSquared
+    compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:${mixinsquared_version}"))
+    implementation(jarJar("com.github.bawnorton.mixinsquared:mixinsquared-neoforge:${mixinsquared_version}"))
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
@@ -82,7 +104,8 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
                              mod_license            : mod_license,
                              mod_version            : mod_version,
                              mod_authors            : mod_authors,
-                             mod_description        : mod_description]
+                             mod_description        : mod_description,
+                             mixinsquared_version   : mixinsquared_version]
     inputs.properties replaceProperties
     expand replaceProperties
     from "src/main/templates"

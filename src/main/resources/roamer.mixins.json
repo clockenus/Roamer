@@ -1,10 +1,15 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.clocken.roamer.mixin",
+  "package": "com.clocken.roamer.common.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "MillstoneBlockMixin"
+    "create.MillstoneBlockMixin",
+    "horseman.CopperHornItemMixin",
+    "horseman.HorsemanMixin",
+    "minecraft.BlocksMixin",
+    "nomansland.NMLBlocksMixin",
+    "twigs.TwigsBlocksMixin"
   ],
   "client": [
   ],

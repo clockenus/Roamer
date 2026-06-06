@@ -1,0 +1,11 @@
+{
+  "item.minecraft.wooden_axe": "Stone Axe",
+  "item.minecraft.wooden_hoe": "Stone Hoe",
+  "item.minecraft.wooden_pickaxe": "Stone Pickaxe",
+
+  "item.minecraft.stone_axe": "Copper Axe",
+  "item.minecraft.stone_hoe": "Copper Hoe",
+  "item.minecraft.stone_pickaxe": "Copper Pickaxe",
+  "item.minecraft.stone_shovel": "Copper Shovel",
+  "item.minecraft.stone_sword": "Copper Sword"
+}
